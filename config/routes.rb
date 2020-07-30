@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       put 'vehicles/:id', to: 'vehicle#update'
       delete 'vehicles/:id', to: 'vehicle#destroy'
       get 'vehicles/:id', to: 'vehicle#show'
+      get 'vehicles', to: 'vehicle#list'
     end
   end
 

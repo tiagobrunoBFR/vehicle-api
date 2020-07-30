@@ -2,6 +2,12 @@ module Api
   module V1
     class VehicleController < ApplicationController
 
+      def list
+
+        vehicles = vehicle_service_list
+        render status: 200, json: { data: vehicles }
+      end
+
       def show
         vehicle = vehicle_service_show
         if vehicle.blank?
@@ -55,6 +61,10 @@ module Api
         vehicle.delete
 
         render status: 204
+      end
+
+      def vehicle_service_list
+        ::Services::Vehicle::List.new.call
       end
 
       def vehicle_service_delete
