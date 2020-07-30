@@ -1,24 +1,24 @@
-# README
+## About Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Vehicle-api is an API to control of vehicles
 
-Things you may want to cover:
+## Map mental
 
-* Ruby version
+- **[x-mind map mental](http://www.xmind.net/m/QttxUe)** 
 
-* System dependencies
 
-* Configuration
+## Tools
+ 
+- **[Ruby on Rails Framework](https://rubyonrails.org/)** 
+- **[Tests with rspec](https://rspec.info/documentation/)** 
 
-* Database creation
+## Run Project
 
-* Database initialization
+- bundle install
+- rails db:create
+- rails db:migrate
+- rails server
 
-* How to run the test suite
+## Run Tests
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- rspec
