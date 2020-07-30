@@ -2,6 +2,14 @@ module Api
   module V1
     class VehicleController < ApplicationController
 
+      def show
+        vehicle = vehicle_service_show
+        if vehicle.blank?
+          return render status: 404, json: { data: 'Not Found' }
+        end
+        render status: 200, json: { data: vehicle }
+      end
+
       def update
 
         begin
@@ -59,6 +67,10 @@ module Api
 
       def vehicle_service_update
         ::Services::Vehicle::Update.new(id: params[:id], params: vehicle_params).call
+      end
+
+      def vehicle_service_show
+        ::Services::Vehicle::Show.new(id: params[:id]).call
       end
 
       def vehicle_params
