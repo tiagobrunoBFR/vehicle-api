@@ -10,7 +10,6 @@ module Api
           if vehicle.blank?
             return render status: 404, json: { data: 'Not Found' }
           end
-
           vehicle.update(vehicle_params)
           if vehicle.errors.blank?
 
@@ -37,6 +36,21 @@ module Api
         rescue
           render status: 400, json: { data: 'Bad Request' }
         end
+      end
+
+      def destroy
+
+        vehicle = vehicle_service_delete
+        if vehicle.blank?
+          return render status: 404, json: { data: 'Not Found' }
+        end
+        vehicle.delete
+
+        render status: 204
+      end
+
+      def vehicle_service_delete
+        ::Services::Vehicle::Delete.new(id: params[:id]).call
       end
 
       def vehicle_service_create
